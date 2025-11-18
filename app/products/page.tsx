@@ -38,11 +38,7 @@ export default function ProductsPage() {
 
     if (query.trim() !== '') {
       const q = query.toLowerCase();
-      result = result.filter(
-        (p) =>
-          p.title.toLowerCase().includes(q) ||
-          p.description.toLowerCase().includes(q)
-      );
+      result = result.filter((p) => p.title.toLowerCase().includes(q));
     }
 
     if (sort === 'asc') {
