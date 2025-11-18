@@ -4,8 +4,8 @@ import { fetchProducts } from 'api';
 export async function generateStaticParams() {
   const products = await fetchProducts();
 
-  return products.map((product) => ({
-    id: String(product.id),
+  return products.map((p) => ({
+    id: String(p.id),
   }));
 }
 
