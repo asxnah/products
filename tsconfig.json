@@ -22,7 +22,8 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/store/*": ["store/*"],
-      "@/types/*": ["types/*"]
+      "@/shared-types/*": ["types/*"],
+      "@/hooks/*": ["hooks/*"]
     }
   },
   "include": [
