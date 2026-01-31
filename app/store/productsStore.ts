@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import { Product } from '@/types/product';
-import { fetchProducts } from 'api';
+import { create } from "zustand";
+import { Product } from "@/shared-types/product";
+import { fetchProducts } from "api";
 
 interface ProductState {
   products: Product[];
@@ -45,7 +45,7 @@ export const useProductsStore = create<ProductState>((set, get) => ({
   updateProduct: (id, updated) => {
     set((state) => ({
       products: state.products.map((p) =>
-        p.id === id ? { ...p, ...updated } : p
+        p.id === id ? { ...p, ...updated } : p,
       ),
     }));
   },
