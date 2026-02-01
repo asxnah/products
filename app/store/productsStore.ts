@@ -10,6 +10,7 @@ interface ProductState {
   deleteProduct: (id: number) => void;
   addProduct: (product: Product) => void;
   updateProduct: (id: number, updated: Partial<Product>) => void;
+  getProductById: (id: number) => Product | undefined;
 }
 
 export const useProductsStore = create<ProductState>((set, get) => ({
@@ -49,4 +50,6 @@ export const useProductsStore = create<ProductState>((set, get) => ({
       ),
     }));
   },
+
+  getProductById: (id) => get().products.find((p) => p.id === id),
 }));
