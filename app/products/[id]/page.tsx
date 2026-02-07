@@ -1,5 +1,6 @@
+import { notFound } from "next/navigation";
 import ProductDetailPageClient from "./content";
-import { fetchProducts } from "api";
+import { fetchProductById, fetchProducts } from "api";
 
 export async function generateStaticParams() {
   const products = await fetchProducts();
@@ -16,5 +17,11 @@ export default async function ProductDetailPage({
 }) {
   const { id } = await params;
 
-  return <ProductDetailPageClient id={id} />;
+  const product = await fetchProductById(id);
+
+  if (!product) {
+    notFound();
+  }
+
+  return <ProductDetailPageClient product={product} />;
 }
