@@ -140,27 +140,28 @@ export default function ProductsPage() {
       </div>
 
       {/* пагинация */}
-      <div className="flex justify-center items-center gap-4 mt-6">
-        <button
-          disabled={page === 1}
-          onClick={() => setPage((prev) => prev - 1)}
-          className="px-3 py-2 bg-zinc-100 rounded disabled:opacity-40 flex place-items-center"
-        >
-          <ChevronLeft size={16} />
-        </button>
+      {page !== totalPages && (
+        <div className="flex justify-center items-center gap-4 mt-6">
+          <button
+            disabled={page === 1}
+            onClick={() => setPage((prev) => prev - 1)}
+            className="px-3 py-2 bg-zinc-100 rounded disabled:opacity-40 flex place-items-center"
+          >
+            <ChevronLeft size={16} />
+          </button>
 
-        <span className="text-base/7 font-semibold text-zinc-700">
-          {page} / {totalPages}
-        </span>
+          <span className="text-base/7 font-semibold text-zinc-700">
+            {page} / {totalPages}
+          </span>
 
-        <button
-          disabled={page === totalPages}
-          onClick={() => setPage((prev) => prev + 1)}
-          className="px-3 py-2 bg-zinc-100 rounded disabled:opacity-40 flex place-items-center"
-        >
-          <ChevronRight size={16} />
-        </button>
-      </div>
+          <button
+            onClick={() => setPage((prev) => prev + 1)}
+            className="px-3 py-2 bg-zinc-100 rounded disabled:opacity-40 flex place-items-center"
+          >
+            <ChevronRight size={16} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
