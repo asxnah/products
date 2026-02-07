@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useProductsStore } from "@/store/productsStore";
 import { Product } from "@/shared-types/product";
-import { Heart, Star, Trash } from "lucide-react";
+import { Heart, Star } from "lucide-react";
 
 interface Props {
   product: Product;
@@ -12,7 +12,6 @@ interface Props {
 export default function ProductCard({ product }: Props) {
   const router = useRouter();
   const toggleLike = useProductsStore((state) => state.toggleLike);
-  const deleteProduct = useProductsStore((state) => state.deleteProduct);
   const favorites = useProductsStore((state) => state.favorites);
   const isFavorite = favorites.includes(product.id);
 
@@ -44,26 +43,15 @@ export default function ProductCard({ product }: Props) {
         <Star size={16} color="#ffd60a" /> {product.rating}
       </p>
 
-      <div className="absolute top-2 right-2 flex gap-2">
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            toggleLike(product.id);
-          }}
-          className="p-1 rounded-lg"
-        >
-          <Heart size={16} color={isFavorite ? "#ef233c" : "#9f9fa9"} />
-        </button>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            deleteProduct(product.id);
-          }}
-          className="p-1 text-zinc-400 hover:text-zinc-700"
-        >
-          <Trash size={16} color="#9f9fa9" />
-        </button>
-      </div>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleLike(product.id);
+        }}
+        className="absolute top-2 right-2 p-1 rounded-lg"
+      >
+        <Heart size={16} color={isFavorite ? "#ef233c" : "#9f9fa9"} />
+      </button>
     </div>
   );
 }

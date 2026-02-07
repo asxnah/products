@@ -8,9 +8,6 @@ interface ProductState {
   fetchProducts: () => Promise<void>;
   toggleLike: (id: number) => void;
   deleteProduct: (id: number) => void;
-  addProduct: (product: Product) => void;
-  updateProduct: (id: number, updated: Partial<Product>) => void;
-  getProductById: (id: number) => Product | undefined;
 }
 
 export const useProductsStore = create<ProductState>((set, get) => ({
@@ -36,20 +33,4 @@ export const useProductsStore = create<ProductState>((set, get) => ({
       products: state.products.filter((p) => p.id !== id),
     }));
   },
-
-  addProduct: (product) => {
-    set((state) => ({
-      products: [...state.products, product],
-    }));
-  },
-
-  updateProduct: (id, updated) => {
-    set((state) => ({
-      products: state.products.map((p) =>
-        p.id === id ? { ...p, ...updated } : p,
-      ),
-    }));
-  },
-
-  getProductById: (id) => get().products.find((p) => p.id === id),
 }));
