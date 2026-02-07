@@ -1,5 +1,5 @@
-import EditProductPageClient from './content';
-import { fetchProducts } from 'api';
+import EditProductPageClient from "./content";
+import { fetchProducts } from "api";
 
 export async function generateStaticParams() {
   const products = await fetchProducts();
