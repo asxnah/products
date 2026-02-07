@@ -53,20 +53,12 @@ export default function ProductDetailPageClient({
         </div>
       </div>
 
-      <div className="mt-8 flex gap-2">
-        <button
-          onClick={() => router.push("/products")}
-          className="px-6 py-3 bg-zinc-50 text-zinc-900 rounded-lg transition duration-200 hover:bg-zinc-100 flex items-center gap-2"
-        >
-          <ArrowLeft size={16} /> View all products
-        </button>
-        <button
-          onClick={() => router.push(`/products/edit-product/${product.id}`)}
-          className="px-6 py-3 bg-pink-100 text-pink-500 rounded-lg transition duration-200 hover:bg-pink-200 hover:text-pink-600"
-        >
-          Edit this product
-        </button>
-      </div>
+      <button
+        onClick={() => router.push("/products")}
+        className="px-6 py-3 bg-zinc-50 text-zinc-900 rounded-lg transition duration-200 hover:bg-zinc-100 flex items-center gap-2"
+      >
+        <ArrowLeft size={16} /> View all products
+      </button>
     </div>
   );
 }
