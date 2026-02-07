@@ -84,7 +84,3 @@ All product-related state is managed with **Zustand**:
 - Methods:
   - `fetchProducts()`
   - `toggleLike(id)`
-  - `deleteProduct(id)`
-  - `addProduct(product)`
-  - `updateProduct(id, updated)`
-  - `getProductById(id)`
