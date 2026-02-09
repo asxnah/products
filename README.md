@@ -15,10 +15,6 @@ A React/Next.js application for managing and browsing products with features suc
   - By price (ascending/descending).
 
 - **Pagination**: displays products in pages with a configurable number of items per page.
-- **CRUD operations**:
-  - Add new product.
-  - Edit product details.
-  - Delete product.
 
 - **Product details page** with full description, image, price, and rating.
 - **Responsive UI** built with Tailwind CSS.
